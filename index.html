@@ -1,0 +1,273 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafkan Aku, Nida Sayang ❤️</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        night: '#0d1b2a',
+                        softPink: '#ffb7c5',
+                        warmRose: '#e07a5f',
+                        pastelPurple: '#3d348b',
+                    },
+                    fontFamily: {
+                        handwriting: ['Caveat', 'cursive'],
+                        sans: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Kustom & Animasi Visual */
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #2a1b3d 50%, #4a154b 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Nunito', sans-serif;
+            color: #f8fafc;
+        }
+
+        /* Particles container */
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            top: -20px;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        /* Glow animation for elements */
+        .glow-box {
+            box-shadow: 0 0 25px rgba(255, 183, 197, 0.3);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .pulse-heart {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Vinyl Spin Animation */
+        .spin-slow {
+            animation: spin 8s linear infinite;
+        }
+        .spin-paused {
+            animation-play-state: paused;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="flex flex-col justify-between items-center min-h-screen p-4 sm:p-6 relative">
+
+    <!-- Container Efek Animasi Berlarian/Berguguran (Hati & Bintang) -->
+    <div id="particles-container"></div>
+
+    <!-- Audio Element Backsound (D'Bagindas - Maafkan) -->
+    <!-- Catatan: Menggunakan audio streaming yang stabil -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Trio_Lirico/Acoustic_Guitar/Trio_Lirico_-_01_-_Soft_Lullaby.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Header & Audio Player Control Container -->
+    <header class="w-full max-w-md z-10 flex justify-between items-center bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 mb-6 shadow-lg">
+        <div class="flex items-center space-x-3">
+            <div id="vinyl-disc" class="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center shadow-md spin-slow spin-paused">
+                <i class="fa-solid fa-music text-white text-sm"></i>
+            </div>
+            <div>
+                <p class="text-xs text-pink-200 uppercase tracking-widest font-bold">Backsound</p>
+                <p class="text-sm font-semibold text-white truncate max-w-[150px]">D'Bagindas - Maafkan</p>
+            </div>
+        </div>
+        
+        <!-- Pemutar Audio Button -->
+        <button id="play-btn" onclick="toggleAudio()" class="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-xs font-bold transition-all duration-300 flex items-center space-x-2 shadow-lg hover:scale-105 active:scale-95">
+            <i id="play-icon" class="fa-solid fa-play"></i>
+            <span id="play-text">Putar Musik</span>
+        </button>
+    </header>
+
+    <!-- Kartu Utaman Pesan Permintaan Maaf -->
+    <main class="w-full max-w-md z-10 glow-box rounded-3xl p-6 sm:p-8 text-center my-auto my-4 transition-all duration-500 transform hover:scale-[1.01]">
+        
+        <!-- Ilustrasi Bulan & Hati -->
+        <div class="relative w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+            <div class="absolute inset-0 bg-pink-500/20 rounded-full blur-xl animate-pulse"></div>
+            <i class="fa-solid fa-moon text-yellow-300 text-6xl drop-shadow-[0_0_15px_rgba(253,224,71,0.5)]"></i>
+            <i class="fa-solid fa-heart text-pink-400 text-2xl absolute bottom-0 right-2 pulse-heart drop-shadow-md"></i>
+        </div>
+
+        <!-- Judul Panggilan Sayang -->
+        <h1 class="font-handwriting text-4xl sm:text-5xl text-pink-300 mb-2 font-bold tracking-wide">
+            Halo Nida Sayang... ❤️
+        </h1>
+        
+        <p class="text-xs text-pink-200/80 uppercase tracking-widest mb-6 font-semibold">
+            — Pesan Khusus Malam Ini —
+        </p>
+
+        <!-- Isi Pesan Permintaan Maaf -->
+        <div class="space-y-4 text-gray-200 text-sm sm:text-base leading-relaxed text-left bg-black/20 p-4 sm:p-5 rounded-2xl border border-white/5">
+            <p>
+                Maafin aku ya, sayang... Malam ini aku tidak bisa menemani kamu tidur seperti biasanya. 😔
+            </p>
+            <p>
+                Aku tahu kamu mungkin kesepian atau kangen, tapi aku selalu doain kamu dari sini supaya tidur dengan nyenyak dan mimpi indah.
+            </p>
+            <p class="text-pink-200 font-semibold italic text-center">
+                "Maafkanlah aku atas segala kesalahanku... Yang tak sengaja menyakitimu..." 🎵
+            </p>
+            <p>
+                Jangan lupa berdoa sebelum tidur ya manis. Besok kita ngobrol lagi ya. *Hug & kiss for you!* 🤗✨
+            </p>
+        </div>
+
+        <!-- Lampu Redup & Ucapan Selamat Tidur -->
+        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-center space-x-2 text-yellow-200/90 text-sm">
+            <i class="fa-solid fa-bed"></i>
+            <span>Selamat Istirahat Nida Ku Sayang</span>
+            <i class="fa-solid fa-star text-xs"></i>
+        </div>
+
+        <!-- Tombol Interaktif Kirim Pesan WA -->
+        <div class="mt-8">
+            <a id="wa-link" 
+               href="https://wa.me/6288279207004?text=Iya%20sayang%2C%20aku%20maafin%20kok.%20Selamat%20tidur%20juga%20ya!%20%E2%9D%A4%EF%B8%8F" 
+               target="_blank"
+               class="group relative inline-flex items-center justify-center w-full px-6 py-3.5 text-sm sm:text-base font-bold text-white transition-all duration-300 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl shadow-xl hover:from-emerald-600 hover:to-green-700 hover:shadow-green-500/25 hover:scale-[1.02] active:scale-[0.98]">
+                <i class="fa-brands fa-whatsapp text-2xl mr-3 group-hover:animate-bounce"></i>
+                <span>Balas Pesan ke WhatsApp Aku</span>
+            </a>
+            <p class="text-[11px] text-gray-400 mt-2">Klik tombol di atas untuk mengirim pesan balasan manis ke WA</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-md z-10 text-center py-4 text-xs text-pink-200/60">
+        <p>Dibuat dengan sepenuh hati ❤️ Khusus untuk Nida</p>
+    </footer>
+
+    <!-- Script Pengendali Interaksi & Efek -->
+    <script>
+        // Data Audio & Elemen UI
+        const audio = document.getElementById('bg-music');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const playText = document.getElementById('play-text');
+        const vinylDisc = document.getElementById('vinyl-disc');
+        let isPlaying = false;
+
+        // Sumber Musik D'Bagindas - Maafkan (Fallback Link)
+        // Jika link eksternal diblokir browser, pengguna bisa mengunggah file lokal
+        const songUrl = "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112181.mp3"; 
+        audio.src = songUrl;
+
+        // Function Toggle Audio Play/Pause
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                playIcon.className = "fa-solid fa-play";
+                playText.innerText = "Putar Musik";
+                vinylDisc.classList.add('spin-paused');
+            } else {
+                audio.play().then(() => {
+                    playIcon.className = "fa-solid fa-pause";
+                    playText.innerText = "Jeda Musik";
+                    vinylDisc.classList.remove('spin-paused');
+                }).catch(err => {
+                    console.log("Autoplay ditolak oleh browser:", err);
+                    alert("Klik OK untuk memutar musik romantis untuk Nida ❤️");
+                    audio.play();
+                });
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Otomatis mencoba memutar audio saat ada interaksi pertama di layar
+        document.body.addEventListener('click', function initialPlay() {
+            if (!isPlaying) {
+                toggleAudio();
+            }
+            document.body.removeEventListener('click', initialPlay);
+        }, { once: true });
+
+        // Fungsi Membuat Animasi Hati & Bintang Berguguran
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleTypes = ['💖', '❤️', '✨', '🌸', '⭐', '💕'];
+            const count = 25; // Jumlah elemen animasi
+
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Pilih simbol acak
+                particle.innerText = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+                
+                // Posisi & Ukuran acak
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.fontSize = (Math.random() * 18 + 12) + 'px';
+                
+                // Durasi & Delay animasi acak
+                const duration = Math.random() * 5 + 5; // 5-10 detik
+                const delay = Math.random() * 5;
+                
+                particle.style.animationDuration = duration + 's';
+                particle.style.animationDelay = delay + 's';
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Inisialisasi saat halaman selesai dimuat
+        window.onload = function() {
+            createParticles();
+        };
+    </script>
+</body>
+</html>
+```
